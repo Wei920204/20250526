@@ -4,6 +4,11 @@ let handpose;
 let predictions = [];
 let handPredictions = [];
 let circlePosIndex = 94; // 預設鼻子
+let logoImg;
+
+function preload() {
+  logoImg = loadImage('https://upload.wikimedia.org/wikipedia/commons/4/47/PNGTRANSPARENT-com-logo.png');
+}
 
 function setup() {
   createCanvas(640, 480).position(
@@ -66,18 +71,21 @@ function draw() {
       // 左右眼（33, 263）
       const [x1, y1] = keypoints[33];
       const [x2, y2] = keypoints[263];
-      ellipse(x1, y1, 50, 50);
-      ellipse(x2, y2, 50, 50);
+      imageMode(CENTER);
+      image(logoImg, x1, y1, 50, 50);
+      image(logoImg, x2, y2, 50, 50);
     } else if (circlePosIndex === 'cheeks') {
       // 左右臉頰（234, 454）
       const [x1, y1] = keypoints[234];
       const [x2, y2] = keypoints[454];
-      ellipse(x1, y1, 50, 50);
-      ellipse(x2, y2, 50, 50);
+      imageMode(CENTER);
+      image(logoImg, x1, y1, 50, 50);
+      image(logoImg, x2, y2, 50, 50);
     } else {
       // 額頭或鼻子
       const [x, y] = keypoints[circlePosIndex];
-      ellipse(x, y, 50, 50);
+      imageMode(CENTER);
+      image(logoImg, x, y, 50, 50);
     }
   }
 }
