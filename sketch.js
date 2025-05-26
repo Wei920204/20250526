@@ -7,7 +7,7 @@ let circlePosIndex = 94; // 預設鼻子
 let logoImg;
 
 function preload() {
-  logoImg = loadImage('https://upload.wikimedia.org/wikipedia/commons/4/47/PNGTRANSPARENT-com-logo.png');
+  logoImg = loadImage('logo.jpg'); // 請確保 logo.png 與 sketch.js 在同一資料夾
 }
 
 function setup() {
